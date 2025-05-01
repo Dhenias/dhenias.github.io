@@ -1,0 +1,69 @@
+body {
+    font-family: "Ubuntu", sans-serif;
+    color:azure;
+    background-color: #ff3fb5;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+header {
+    border-radius: 16px;
+    display: flex;
+    width: auto;
+    height: 80px;
+    background: #ffd0f575;
+    margin-top: 10px;
+    transition: box-shadow 0.5s;
+}
+header:hover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.115);
+}
+.dhenias {
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 10px;
+    margin-left: 30px;
+    cursor: pointer;
+    transition: transform 0.5s, margin-left 0.3s, padding-right 0.5s;
+}
+.dhenias a {
+    text-align: center;
+    text-decoration: none;
+    color: azure;
+    font-size: larger;
+}
+.dhenias:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    margin-left: 45px;
+    padding-right: 13px;
+}
+.subheader {
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 12px;
+    margin-left: 18px;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    transition: transform 0.5s, margin-left 0.3s, padding-left 0.5s, padding-right 0.5s;
+}
+.subheader a {
+    text-align: center;
+    text-decoration: none;
+    color: rgba(240, 255, 255, 0.7);
+    font-size: medium;
+    transition: color 0.5s;
+}
+.subheader:hover {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    margin-left: 14px;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+.subheader a:hover {
+    color: azure;
+}
