@@ -1,7 +1,10 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: "Ubuntu", sans-serif;
     color:azure;
-    background-color: #ff3fb5;
+    background-color: #04001c;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -11,18 +14,27 @@ header {
     display: flex;
     width: auto;
     height: 80px;
-    background: #ffd0f575;
+    background: #00084b75;
     margin-top: 10px;
     transition: box-shadow 0.5s;
 }
 header:hover {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.115);
 }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 99%;
+}
+.sticky + .body {
+    padding-top: 102px;
+}
 .dhenias {
     display: inline-flex;
     vertical-align: middle;
     margin: 10px;
     margin-left: 30px;
+    margin-right: 30px;
     cursor: pointer;
     transition: transform 0.5s, margin-left 0.3s, padding-right 0.5s;
 }
@@ -47,7 +59,7 @@ header:hover {
     display: inline-flex;
     vertical-align: middle;
     margin: 12px;
-    margin-left: 18px;
+    margin-left: 10px;
     cursor: pointer;
     padding-left: 0;
     padding-right: 0;
@@ -72,14 +84,52 @@ header:hover {
     color: azure;
 }
 .body {
-    margin: 25px;
+    margin: 15px;
     color: azure;
     font-size: medium;
 }
 .profile {
     display: flex;
-    background-color: #ffd0f575;
     margin: 10px;
     padding: 10px;
     border-radius: 16px;
+}
+.pfp {
+    display: inline-flex;
+    border-radius: 50%;
+    margin: 25px;
+    opacity: 90%;
+    transition: border-radius 0.2s, transform 0.5s, opacity 0.3s;
+}
+.pfp:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: 100%;
+    border-radius: 25%;
+}
+.disprofile {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    align-content: center;
+    font-size: xx-large;
+}
+.disprofile p {
+    display: flex;
+    color: rgba(240, 255, 255, 0.7);
+    margin-bottom: 2px;
+    padding-bottom: 10px;
+    transition: transform 0.5s, margin-left 0.3s, color 0.2s;
+}
+.disprofile p:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    color: azure;
+    margin-left: 25px;
+}
+.agency {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: large;
 }
