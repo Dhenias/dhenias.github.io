@@ -31,13 +31,17 @@ header:hover {
     text-decoration: none;
     color: azure;
     font-size: larger;
+    transition: color 0.5s;
 }
 .dhenias:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
-    margin-left: 45px;
+    margin-left: 55px;
     padding-right: 13px;
+}
+.dhenias a:hover {
+    color: white;
 }
 .subheader {
     display: inline-flex;
@@ -66,4 +70,9 @@ header:hover {
 }
 .subheader a:hover {
     color: azure;
+}
+.body {
+    margin: 25px;
+    color: azure;
+    font-size: medium;
 }
