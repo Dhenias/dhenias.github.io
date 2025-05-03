@@ -143,7 +143,6 @@ header:hover {
     color: azure;
     margin-left: 25px;
 }
-}
 @media screen and (max-width: 800px) and (min-width: 651px) {
     .disprofile p {
         font-size: x-large;
