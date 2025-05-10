@@ -63,17 +63,16 @@ header:hover {
     vertical-align: middle;
     margin: 12px;
     margin-left: 10px;
+    color: rgba(240, 255, 255, 0.7);
     cursor: pointer;
     padding-left: 0;
     padding-right: 0;
-    transition: transform 0.5s, margin-left 0.3s, padding-left 0.5s, padding-right 0.5s;
+    transition: transform 0.5s, margin-left 0.3s, padding-left 0.5s, padding-right 0.5s, color 0.5s;
 }
 .subheader a {
     text-align: center;
     text-decoration: none;
-    color: rgba(240, 255, 255, 0.7);
     font-size: medium;
-    transition: color 0.5s;
 }
 .subheader:hover {
     -webkit-transform: scale(1.3);
@@ -82,8 +81,6 @@ header:hover {
     margin-left: 14px;
     padding-left: 13px;
     padding-right: 13px;
-}
-.subheader a:hover {
     color: azure;
 }
 .body {
