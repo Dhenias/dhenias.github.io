@@ -10,11 +10,10 @@ body {
     user-select: none;
 }
 header {
-    border-radius: 16px;
     display: flex;
     width: auto;
     height: 80px;
-    background: #00084b75;
+    background: #000535;
     margin-top: 10px;
     transition: box-shadow 0.5s;
 }
@@ -28,6 +27,10 @@ header:hover {
 }
 .sticky + .body {
     padding-top: 102px;
+}
+.pfp {
+    width: 160px;
+    height: 160px;
 }
 .dhenias {
     display: inline-flex;
