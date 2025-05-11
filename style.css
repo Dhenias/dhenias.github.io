@@ -81,19 +81,19 @@ header:hover {
 }
 .pfp {
     display: inline-flex;
-    clip-path: circle(50%);
+    border-radius: 50%;
     width: 160px;
     height: 160px;
     margin: 25px;
     opacity: 90%;
-    transition: clip-path 0.3s, transform 0.3s, opacity 0.3s;
+    transition: border-radius 0.3s, transform 0.3s, opacity 0.3s;
 }
 .pfp:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
     opacity: 100%;
-    clip-path: circle(100%);
+    border-radius: 8px;
 }
 .pfpm {
     display: none;
@@ -116,9 +116,9 @@ header:hover {
 }
 .close {
     position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
+    top: 2%;
+    right: 3%;
+    font-size: 50px;
     color: rgba(240, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s;
