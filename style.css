@@ -12,7 +12,7 @@ body {
 header {
     display: flex;
     width: auto;
-    z-index: 1000;
+    z-index: 999;
     height: 80px;
     background: #000535;
     margin-top: 10px;
