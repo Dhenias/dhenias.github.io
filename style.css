@@ -10,7 +10,6 @@ body {
     user-select: none;
 }
 header {
-    display: flex;
     width: auto;
     z-index: 999;
     height: 80px;
@@ -30,8 +29,9 @@ header:hover {
     padding-top: 102px;
 }
 .dhenias {
-    display: inline-flex;
+    display: inline-block;
     vertical-align: middle;
+    float: left;
     margin: 10px;
     margin-left: 35px;
     margin-right: 25px;
@@ -42,29 +42,24 @@ header:hover {
     text-decoration: none;
     color: azure;
     font-size: larger;
-    transition: color 0.5s;
+    transition: color 0.2s;
 }
 .subheader {
-    display: inline-flex;
+    display: inline-block;
     vertical-align: middle;
+    float: left;
     margin: 12px;
     margin-left: 10px;
     cursor: pointer;
     padding-left: 0;
     padding-right: 0;
-    transition: margin-left 0.3s, padding-left 0.5s, padding-right 0.5s;
 }
 .subheader a {
     text-align: center;
     text-decoration: none;
     color: rgba(240, 255, 255, 0.7);
     font-size: medium;
-    transition: color 0.5s;
-}
-.subheader:hover {
-    margin-left: 11px;
-    padding-left: 13px;
-    padding-right: 13px;
+    transition: color 0.2s;
 }
 .subheader a:hover {
     color: azure;
