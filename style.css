@@ -65,7 +65,6 @@ header:hover {
     color: azure;
 }
 .body {
-    margin: 15px;
     color: azure;
     font-size: medium;
 }
@@ -84,13 +83,16 @@ header:hover {
 }
 .bordupleft {
     border-top-left-radius: 16px;
+    padding-left: 24px;
 }
 .bordupright {
     border-top-right-radius: 16px;
+    padding-right: 24px;
 }
 .skill-cont {
     width: 100%;
     background-color: #04001c;
+    scale: 0.95;
     border-radius: 16px;
 }
 .skills {
@@ -102,35 +104,65 @@ header:hover {
 }
 .draw {
     background-color: goldenrod;
-    width: 70%;
+    width: 0;
+    transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 }
 .anim {
     background-color: slateblue;
-    width: 82%;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 }
 .html {
     background-color: chartreuse;
-    width: 79%;
+    width: 0;
+    transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 }
 .css {
     background-color: cadetblue;
-    width: 76%;
+    width: 0;
+    transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+.skills.active.draw { width: 70%; }
+.skills.active.anim { width: 82%; }
+.skills.active.html { width: 79%; }
+.skills.active.css  { width: 76%; }
+#bio {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 20px;
 }
 .bio {
-    display: inline-flex;
-    float: inline-start;
+    flex: 1 1 0;
     background: #000535;
     text-align: justify;
+    min-height: 180px;
+    height: auto;
+    box-sizing: border-box;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.skill-cont {
+    width: 100%;
+    background-color: #04001c;
+    border-radius: 16px;
+    height: 100%;
+    padding: 10px;
 }
 .bio div {
     margin: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
 }
 .bio p {
     margin: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
+    font-size: large;
 }
 .flex {
     display: flex;
@@ -209,7 +241,7 @@ header:hover {
 .agency:hover {
     color: azure;
 }
-@media screen and (max-width: 800px) and (min-width: 651px) {
+@media screen and (max-width: 800px){
     .disprofile {
         margin-left: 10px;
     }
@@ -219,15 +251,22 @@ header:hover {
     .agency {
         font-size: medium;
     }
-}
-@media screen and (max-width: 650px) and (min-width: 401px) {
-    .disprofile {
-        margin-left: 0px;
+    .subheader {
+        display: none;
     }
-    .name {
-        font-size: large;
+    #bio {
+        flex-direction: column;
     }
-    .agency {
-        font-size: small;
+    .bio {
+        width: 100% !important;
+        border-radius: 0 !important;
+        margin-bottom: 10px;
+        min-height: unset;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        height: auto;
+    }
+    .skill-cont {
+        height: auto;
     }
 }
