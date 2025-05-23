@@ -85,11 +85,9 @@ header:hover {
     transition: box-shadow 0.5s;
 }
 .bordupleft {
-    border-top-left-radius: 16px;
     padding-left: 24px;
 }
 .bordupright {
-    border-top-right-radius: 16px;
     padding-right: 24px;
 }
 .skill-cont {
