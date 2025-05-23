@@ -145,8 +145,6 @@ header:hover {
     height: auto;
     box-sizing: border-box;
     align-items: center;
-    padding-top: 16px;
-    padding-bottom: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
