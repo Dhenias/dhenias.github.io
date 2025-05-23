@@ -70,10 +70,70 @@ header:hover {
     font-size: medium;
 }
 .profile {
-    display: flex;
+    display: block;
     margin: 10px;
     padding: 10px;
     border-radius: 16px;
+}
+.pcont {
+    display: flex;
+    width: auto;
+    background: #000535;
+    margin-top: 10px;
+    transition: box-shadow 0.5s;
+}
+.bordupleft {
+    border-top-left-radius: 16px;
+}
+.bordupright {
+    border-top-right-radius: 16px;
+}
+.skill-cont {
+    width: 100%;
+    background-color: #04001c;
+    border-radius: 16px;
+}
+.skills {
+  text-align: right;
+  border-radius: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+.draw {
+    background-color: goldenrod;
+    width: 70%;
+}
+.anim {
+    background-color: slateblue;
+    width: 82%;
+}
+.html {
+    background-color: chartreuse;
+    width: 79%;
+}
+.css {
+    background-color: cadetblue;
+    width: 76%;
+}
+.bio {
+    display: inline-flex;
+    float: inline-start;
+    background: #000535;
+    text-align: justify;
+}
+.bio div {
+    margin: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.bio p {
+    margin: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.flex {
+    display: flex;
 }
 .pfp {
     display: inline-flex;
@@ -134,7 +194,7 @@ header:hover {
     color: rgba(240, 255, 255, 0.7);
     margin-bottom: 2px;
     padding-bottom: 10px;
-    transition: color 0.3s, font-size 0.1s;
+    transition: color 0.2s, font-size 0.1s;
 }
 .name:hover {
     color: azure;
