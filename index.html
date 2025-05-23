@@ -28,6 +28,15 @@
       <div class="subheader">
         <p><a href="https://trakteer.id/deniass" target="_blank">Trakteer.id</a></p>
       </div>
+      <div class="mobile-menu">
+        <button id="menu-toggle">&#9776;</button>
+        <div id="mobile-dropdown" style="margin-top: 24px;" class="mobile-dropdown-content">
+          <a href="#profile">Profile</a>
+          <a href="#artworks">Artworks</a>
+          <a href="#contact">Contact</a>
+          <a href="https://trakteer.id/deniass" target="_blank">Trakteer.id</a>
+        </div>
+      </div>
     </header>
     <div class="body">
       <section class="profile" id="profile">
@@ -112,6 +121,15 @@
       document.querySelectorAll('.skills').forEach(function(bar) {
         bar.classList.add('active');
       });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.getElementById('menu-toggle');
+      var dropdown = document.getElementById('mobile-dropdown');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          dropdown.classList.toggle('show');
+        });
+      }
     });
   </script>
   <script src="js/sticky-header.js"></script>

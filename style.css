@@ -44,6 +44,9 @@ header:hover {
     font-size: larger;
     transition: color 0.2s;
 }
+.mobile-menu {
+  display: none;
+}
 .subheader {
     display: inline-block;
     vertical-align: middle;
@@ -268,5 +271,44 @@ header:hover {
     }
     .skill-cont {
         height: auto;
+    }
+    .mobile-menu {
+        display: block;
+        float: right;
+        margin: 14px;
+        position: relative;
+        z-index: 1002;    
+    }
+    #menu-toggle {
+        background: #00000000;
+        color: azure;
+        border: none;
+        font-size: 28px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .mobile-dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #00053595;
+        min-width: 140px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        margin-top: 8px;
+    }
+    .mobile-dropdown-content a {
+        color: azure;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background 0.5s;
+    }
+    .mobile-dropdown-content a:hover {
+        background-color: #04001c;
+    }
+    .mobile-dropdown-content.show {
+        display: block;
     }
 }
