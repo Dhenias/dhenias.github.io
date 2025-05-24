@@ -31,7 +31,6 @@ header:hover {
 .dhenias {
     display: inline-block;
     vertical-align: middle;
-    float: left;
     margin: 10px;
     margin-left: 35px;
     margin-right: 25px;
@@ -50,7 +49,6 @@ header:hover {
 .subheader {
     display: inline-block;
     vertical-align: middle;
-    float: left;
     margin: 12px;
     margin-left: 10px;
     cursor: pointer;
