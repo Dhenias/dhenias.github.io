@@ -3,47 +3,33 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>dhenias.github.io</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div class="header finisher-header" style="width: 100%; height: 300px;">
+  <div class="header finisher-header">
     <header id="header">
-      <div class="dhenias">
-        <p><a href="#">Portofolio</a></p>
-      </div>
-      <div class="subheader">
-        <p><a href="#">Profile</a></p>
-      </div>
-      <div class="subheader">
-        <p><a href="#artworks">Artworks</a></p>
-      </div>
-      <div class="subheader">
-        <p><a href="#contact">Contact</a></p>
-      </div>
-      <div class="subheader">
-        <p><a href="https://trakteer.id/deniass" target="_blank">Trakteer.id</a></p>
-      </div>
+      <div class="dhenias"><p><a href="#">Portofolio</a></p></div>
+      <nav style="display:inline;">
+        <div class="subheader"><p><a href="#">Profile</a></p></div>
+        <div class="subheader"><p><a href="#artworks">Artworks</a></p></div>
+        <div class="subheader"><p><a href="#contact">Contact</a></p></div>
+        <div class="subheader"><p><a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a></p></div>
+      </nav>
       <div class="mobile-menu">
-        <button id="menu-toggle">&#9776;</button>
-        <div id="mobile-dropdown" style="margin-top: 24px;" class="mobile-dropdown-content">
+        <button id="menu-toggle" aria-label="Open menu">&#9776;</button>
+        <div id="mobile-dropdown" class="mobile-dropdown-content">
           <a href="#">Profile</a>
           <a href="#artworks">Artworks</a>
           <a href="#contact">Contact</a>
-          <a href="https://trakteer.id/deniass" target="_blank">Trakteer.id</a>
+          <a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a>
         </div>
       </div>
     </header>
-    <div class="body">
+    <div class="body" style="padding-top: 18px;">
       <section class="profile" id="profile">
         <div class="flex">
-          <a href="#den">
-            <img class="pfp" src="img/den.png">
-          </a>
+          <a href="#den"><img class="pfp" src="img/den.png" alt="Dhenias Syafe'i Suryawijaya"></a>
           <div class="disprofile">
             <p class="name">Dhenias Syafe'i Suryawijaya</p>
             <p class="agency">Kejuruan Animasi - SMKN 2 Cikarang Barat</p>
@@ -51,91 +37,101 @@
         </div>
       </section>
       <section id="bio">
-        <div style="width: 55%;" class="bio bordupleft">
-          <p>
-            &emsp;Nama saya Dhenias Syafe'i Suryawijaya, seorang siswa jurusan Animasi di SMKN 2 Cikarang Barat yang kini menempuh semester 4. Sejak kecil, saya telah jatuh cinta pada dunia animasi dan seni visual, yang mendorong saya untuk terus belajar dan mengasah kemampuan, terutama dalam animasi 2D. Saya terbiasa menggunakan software profesional seperti Toon Boom Harmony dan Clip Studio Paint untuk menciptakan karya animasi yang tidak hanya menarik secara visual, tetapi juga memiliki cerita yang kuat. Selain aktif di sekolah, saya juga sering mengikuti proyek kolaborasi, baik di lingkungan sekolah maupun di luar, sehingga membentuk saya menjadi pribadi yang disiplin, bertanggung jawab, dan mudah beradaptasi.
-            <br><br>
-            &emsp;Saya selalu bersemangat mengeksplorasi teknik baru, mengembangkan karakter, dan mengikuti tren industri kreatif terkini. Bagi saya, animasi bukan sekadar gambar bergerak, melainkan media untuk bercerita, menyampaikan pesan, dan menginspirasi banyak orang. Dengan semangat belajar yang tinggi, saya berharap dapat terus berkembang dan berkontribusi di industri animasi Indonesia, serta mewujudkan impian menjadi animator profesional yang mampu menghasilkan karya-karya inspiratif dan membanggakan.
-          </p>
-        </div>
-        <div style="width: 45%;" class="bio bordupright">
+        <div class="bio">
+          <div class="bio-content">
+            <p>
+              &emsp;Nama saya Dhenias Syafe'i Suryawijaya, siswa jurusan Animasi di SMKN 2 Cikarang Barat semester 4. Sejak kecil, saya suka animasi dan seni visual, terutama animasi 2D. Saya biasa memakai Toon Boom Harmony dan Clip Studio Paint. Saya aktif di proyek kolaborasi, membentuk saya jadi disiplin, bertanggung jawab, dan mudah beradaptasi.<br><br>
+              &emsp;Saya suka eksplorasi teknik baru, mengembangkan karakter, dan mengikuti tren industri kreatif. Animasi bagi saya adalah media bercerita dan menginspirasi. Saya ingin terus berkembang dan berkontribusi di industri animasi Indonesia, serta menjadi animator profesional.
+            </p>
+          </div>
           <div class="skill-cont">
-            <p>Drawing</p>
-            <div class="skills draw">70%</div>
-            <p>Animate</p>
-            <div class="skills anim">80%</div>
-            <p>HTML</p>
-            <div class="skills html">79%</div>
-            <p>CSS</p>
-            <div class="skills css">76%</div>
+            <p>Drawing</p><div class="skills draw">70%</div>
+            <p>Animate</p><div class="skills anim">80%</div>
+            <p>HTML</p><div class="skills html">79%</div>
+            <p>CSS</p><div class="skills css">76%</div>
           </div>
         </div>
       </section>
       <section class="artworks" id="artworks">
-        <div>
-          
+        <h2 style="text-align:center;margin-bottom:18px;">Digital Artworks</h2>
+        <div class="row">
+          <div class="column">
+            <img src="img/artworks/Collab w-vyeranie.png" alt="Collab w-vyeranie" data-artwork>
+            <img src="img/artworks/Denya - Deya.jpeg" alt="Denya - Deya" data-artwork>
+            <img src="img/artworks/Denya C.jpg" alt="Denya C" data-artwork>
+          </div>
+          <div class="column">
+            <img src="img/artworks/Enya.png" alt="Enya" data-artwork>
+            <img src="img/artworks/Fanart @peanutiess_.jpg" alt="Fanart Peanutiess" data-artwork>
+            <img src="img/artworks/Illustration1.jpg" alt="Illustration1" data-artwork>
+          </div>
+          <div class="column">
+            <img src="img/artworks/Illustration2.jpg" alt="Illustration2" data-artwork>
+            <img src="img/artworks/Minya.jpg" alt="Minya" data-artwork>
+            <img src="img/artworks/Nina.jpg" alt="Nina" data-artwork>
+          </div>
+          <div class="column">
+            <img src="img/artworks/Zephy.jpg" alt="Zephy" data-artwork>
+            <img src="img/artworks/Collab.jpg" alt="Collab XI Animasi 1" data-artwork>
+          </div>
         </div>
       </section>
     </div>
+    <footer id="contact" class="footer">
+      <div class="footer-content">
+        <p>Kontak saya:</p>
+        <ul>
+          <li>Whatsapp: <a href="https://wa.me/6282211144693" target="_blank" rel="noopener">+62 822-1114-4693</a></li>
+          <li>Email: <a href="mailto:dhenias08@gmail.com">dhenias08@gmail.com</a></li>
+          <li>Instagram: <a href="https://instagram.com/dhenyash" target="_blank" rel="noopener">@dhenyash</a></li>
+        </ul>
+        <p style="margin-top:12px;font-size:0.95em;color:#B8C1EC99;">&copy; 2025 Dhenias Syafe'i Suryawijaya</p>
+      </div>
+    </footer>
   </div>
-
   <div id="den" class="pfpm">
-    <a href="#" class="close">&times;</a>
-    <img src="img/den.png">
+    <a href="#" class="close" aria-label="Close image">&times;</a>
+    <img src="img/den.png" alt="Dhenias Syafe'i Suryawijaya">
   </div>
-
-  <script src="js/finisher-header.es5.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    new FinisherHeader({
-      "count": 50,
-      "size": {
-        "min": 2,
-        "max": 8,
-        "pulse": 0
-      },
-      "speed": {
-        "x": {
-          "min": 0,
-          "max": 0.4
-        },
-        "y": {
-          "min": 0,
-          "max": 0.6
-        }
-      },
-      "colors": {
-        "background": "#04001c",
-        "particles": [
-          "#fbfcca",
-          "#d7f3fe",
-          "#ffd0a7"
-        ]
-      },
-      "blending": "overlay",
-      "opacity": {
-        "center": 1,
-        "edge": 0
-      },
-      "skew": -2,
-      "shapes": [
-        "c"
-      ]
-    });
-  </script>
+  <div id="artwork-modal" class="artwork-modal">
+    <a href="#" class="close" aria-label="Close image">&times;</a>
+    <img src="" alt="Artwork Zoom">
+  </div>
+  <script src="js/finisher-header.es5.min.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.skills').forEach(function(bar) {
-        bar.classList.add('active');
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
       var toggle = document.getElementById('menu-toggle');
       var dropdown = document.getElementById('mobile-dropdown');
-      if (toggle) {
-        toggle.addEventListener('click', function() {
-          dropdown.classList.toggle('show');
+      if (toggle) toggle.onclick = () => dropdown.classList.toggle('show');
+      document.addEventListener('click', function(e) {
+        if (dropdown && dropdown.classList.contains('show') && !dropdown.contains(e.target) && e.target !== toggle) {
+          dropdown.classList.remove('show');
+        }
+      });
+
+      // Artwork zoom modal
+      var modal = document.getElementById('artwork-modal');
+      var modalImg = modal.querySelector('img');
+      document.querySelectorAll('img[data-artwork]').forEach(function(img) {
+        img.addEventListener('click', function(e) {
+          e.preventDefault();
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+          modal.classList.add('show');
         });
-      }
+      });
+      modal.querySelector('.close').onclick = function(e) {
+        e.preventDefault();
+        modal.classList.remove('show');
+        modalImg.src = '';
+      };
+      modal.onclick = function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+          modalImg.src = '';
+        }
+      };
     });
   </script>
   <script src="js/sticky-header.js"></script>
