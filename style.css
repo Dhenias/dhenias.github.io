@@ -238,7 +238,7 @@ header:hover {
 .agency:hover {
     color: azure;
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1000px){
     .disprofile {
         margin-left: 10px;
     }
@@ -250,6 +250,9 @@ header:hover {
     }
     .subheader {
         display: none;
+    }
+    .skill-cont {
+        scale: 0.9;
     }
     #bio {
         flex-direction: column;
