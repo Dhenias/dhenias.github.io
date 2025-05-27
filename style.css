@@ -315,6 +315,7 @@ header:hover { box-shadow: 0 4px 16px 0 rgba(0,0,0,0.16); background: #232946ee;
 .artworks-dropdown-content {
     display: none;
     position: absolute;
+    top: 103%;
     left: 16rem;
     background: #232946f2;
     min-width: 160px;
