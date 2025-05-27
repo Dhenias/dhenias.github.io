@@ -112,7 +112,7 @@ header:hover { box-shadow: 0 4px 16px 0 rgba(0,0,0,0.16); background: #232946ee;
     flex: 2;
     margin: 18px 0 18px 18px;
     padding: 18px 24px;
-    font-size: 1rem;
+    font-size: 0.93rem;
     line-height: 1.7;
 }
 .flex { display: flex; align-items: center; }
@@ -365,7 +365,7 @@ header:hover { box-shadow: 0 4px 16px 0 rgba(0,0,0,0.16); background: #232946ee;
     .bio-content {
         margin: 14px 0 0 0;
         padding: 14px 10px;
-        font-size: 0.97rem;
+        font-size: 1rem;
     }
     .profile {
         font-size: 1rem;
