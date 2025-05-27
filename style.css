@@ -702,3 +702,231 @@ header:hover {
         object-fit: cover;
     }
 }
+
+/* === MODE SWITCHER BUTTON === */
+.mode-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 10px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    color: #F4D35E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    z-index: 1100;
+}
+.mode-toggle-btn:hover,
+.mode-toggle-btn:focus {
+    background: #ffffff33;
+    outline: none;
+}
+.mode-toggle-btn .mode-icon svg {
+    display: block;
+    width: 26px;
+    height: 26px;
+    pointer-events: none;
+}
+
+/* Desktop: tombol di kanan header */
+.desktop-only {
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.mobile-only {
+    display: none !important;
+}
+
+/* Mobile: tombol di kiri header, kanan Portofolio */
+@media screen and (max-width: 1000px) {
+    .desktop-only {
+        display: none !important;
+    }
+    .mobile-only {
+        display: flex !important;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1101;
+    }
+    .dhenias {
+        margin-left: 54px !important; /* beri ruang untuk tombol */
+    }
+}
+
+/* === LIGHT MODE === */
+body.light-mode {
+    color: #232946;
+    background: #e9ebee;
+}
+body.light-mode header,
+body.light-mode .footer,
+body.light-mode .profile,
+body.light-mode .bio,
+body.light-mode .skill-cont,
+body.light-mode .artworks-dropdown-content,
+body.light-mode .mobile-dropdown-content {
+    background: #f3f5fa !important;
+    color: #232946 !important;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+}
+body.light-mode .dhenias a,
+body.light-mode .subheader a,
+body.light-mode .artsubhead,
+body.light-mode .artworks-dropdown-toggle {
+    color: #232946;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+}
+body.light-mode .dhenias a:hover,
+body.light-mode .subheader a:hover,
+body.light-mode .artsubhead:hover,
+body.light-mode .artworks-dropdown-toggle:hover {
+    color: #9fb37b;
+    background: none;
+}
+body.light-mode .skills.draw {
+    background: #F4D35E;
+    color: #232946;
+}
+body.light-mode .skills.anim,
+body.light-mode .skills.css {
+    background: #b8c1ec55;
+    color: #232946;
+}
+body.light-mode .skills.html {
+    background: #B8C1EC;
+    color: #232946;
+}
+body.light-mode .artworks-dropdown-content a,
+body.light-mode .mobile-dropdown-content a {
+    color: #232946;
+}
+body.light-mode .artworks-dropdown-content a:hover,
+body.light-mode .mobile-dropdown-content a:hover {
+    background: #e3e7f3;
+    color: #9fb37b;
+}
+body.light-mode .footer-content a {
+    color: #232946;
+}
+body.light-mode .footer-content a:hover {
+    color: #9fb37b;
+}
+body.light-mode .artwork-grid img,
+body.light-mode .column img {
+    background: #f3f5fa;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+}
+body.light-mode .artwork-modal {
+    background: rgba(230,235,245,0.96);
+}
+body.light-mode .artwork-modal img {
+    background: #f3f5fa;
+}
+body.light-mode .close {
+    color: #232946bb;
+}
+body.light-mode .close:hover {
+    color: #9fb37b;
+}
+body.light-mode .agency,
+body.light-mode .name {
+    color: #232946;
+}
+body.light-mode .name:hover,
+body.light-mode .agency:hover {
+    color: #9fb37b;
+}
+body.light-mode .mode-toggle-btn {
+    color: #232946;
+}
+body.light-mode .mode-toggle-btn:hover,
+body.light-mode .mode-toggle-btn:focus {
+    background: #9fb37b33;
+}
+
+/* Section titles and copyright: lebih gelap, tidak sama dengan link */
+#digital > h2,
+#traditional > h2,
+.footer-content p:last-child,
+.footer-content .footer-copyright {
+    color: #7a88b8 !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+body.light-mode #digital > h2,
+body.light-mode #traditional > h2,
+body.light-mode .footer-content p:last-child,
+body.light-mode .footer-content .footer-copyright {
+    color: #5a6480 !important;
+}
+
+/* === MOBILE OVERRIDES === */
+@media screen and (max-width: 1000px) {
+    /* ...existing code... */
+    body.light-mode .body,
+    body.light-mode .bio-content,
+    body.light-mode .disprofile,
+    body.light-mode .disprofile .name,
+    body.light-mode .disprofile .agency,
+    body.light-mode .profile,
+    body.light-mode .bio,
+    body.light-mode .footer,
+    body.light-mode .footer-content,
+    body.light-mode .skill-cont,
+    body.light-mode .artworks-dropdown-content,
+    body.light-mode .mobile-dropdown-content,
+    body.light-mode .mobile-dropdown-content a,
+    body.light-mode .mobile-menu,
+    body.light-mode .column,
+    body.light-mode .artwork-grid,
+    body.light-mode .artwork-grid img,
+    body.light-mode .column img {
+        color: #232946 !important;
+        background: #f3f5fa !important;
+    }
+    body.light-mode .mobile-dropdown-content a {
+        color: #232946 !important;
+    }
+    body.light-mode .mobile-dropdown-content a:hover,
+    body.light-mode .mobile-dropdown-content a:active,
+    body.light-mode .mobile-dropdown-content a:focus {
+        background: #e3e7f3 !important;
+        color: #9fb37b !important;
+    }
+    body.light-mode .profile .name,
+    body.light-mode .profile .agency {
+        color: #232946 !important;
+    }
+    body.light-mode .profile .name:hover,
+    body.light-mode .profile .agency:hover {
+        color: #9fb37b !important;
+    }
+    body.light-mode .footer-content a {
+        color: #232946 !important;
+    }
+    body.light-mode .footer-content a:hover {
+        color: #9fb37b !important;
+    }
+    body.light-mode .skills {
+        color: #232946 !important;
+    }
+    /* Section/copyright titles mobile */
+    body.light-mode #digital > h2,
+    body.light-mode #traditional > h2,
+    body.light-mode .footer-content p:last-child,
+    body.light-mode .footer-content .footer-copyright {
+        color: #5a6480 !important;
+    }
+}
