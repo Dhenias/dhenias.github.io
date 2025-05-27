@@ -11,16 +11,23 @@
     <header id="header">
       <div class="dhenias"><p><a href="#">Portofolio</a></p></div>
       <nav style="display:inline;">
-        <div class="subheader"><p><a href="#">Profile</a></p></div>
-        <div class="subheader"><p><a href="#artworks">Artworks</a></p></div>
+        <div class="subheader"><p><a href="#profile">Profile</a></p></div>
+        <div class="subheader">
+          <button class="artworks-dropdown-toggle artsubhead">Artworks</button>
+          <div class="artworks-dropdown-content mobile-dropdown-content">
+            <a href="#digital">Digital Arts</a>
+            <a href="#traditional">Traditional Arts</a>
+          </div>
+        </div>
         <div class="subheader"><p><a href="#contact">Contact</a></p></div>
         <div class="subheader"><p><a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a></p></div>
       </nav>
       <div class="mobile-menu">
         <button id="menu-toggle" aria-label="Open menu">&#9776;</button>
         <div id="mobile-dropdown" class="mobile-dropdown-content">
-          <a href="#">Profile</a>
-          <a href="#artworks">Artworks</a>
+          <a href="#profile">Profile</a>
+          <a href="#digital">Digital Arts</a>
+          <a href="#traditional">Traditional Arts</a>
           <a href="#contact">Contact</a>
           <a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a>
         </div>
@@ -52,7 +59,7 @@
           </div>
         </div>
       </section>
-      <section class="artworks" id="artworks">
+      <section class="artworks" id="digital">
         <h2 style="text-align:center;margin-bottom:18px;">Artworks</h2>
         <div class="row">
           <div class="column">
@@ -101,6 +108,24 @@
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
+
+      // Dropdown khusus Artworks
+      var artworksToggle = document.querySelector('.artworks-dropdown-toggle');
+      var artworksDropdown = document.querySelector('.artworks-dropdown-content');
+      if (artworksToggle) artworksToggle.onclick = function(e) {
+        e.stopPropagation();
+        artworksDropdown.classList.toggle('show');
+      };
+      document.addEventListener('click', function(e) {
+        if (
+          artworksDropdown && artworksDropdown.classList.contains('show') &&
+          !artworksDropdown.contains(e.target) && e.target !== artworksToggle
+        ) {
+          artworksDropdown.classList.remove('show');
+        }
+      });
+
+      // Mobile dropdown
       var toggle = document.getElementById('menu-toggle');
       var dropdown = document.getElementById('mobile-dropdown');
       if (toggle) toggle.onclick = () => dropdown.classList.toggle('show');
