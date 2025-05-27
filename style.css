@@ -355,7 +355,7 @@ header:hover {
 }
 
 .artwork-grid img:hover {
-    transform: scale(1.04) rotate(-1deg);
+    transform: scale(1.06) rotate(-1deg);
     box-shadow: 0 6px 24px 0 rgba(244,211,94,0.18);
 }
 
@@ -383,14 +383,15 @@ header:hover {
     border-radius: 12px;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
     background: #232946;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-radius 0.2s;
     cursor: pointer;
     display: block;
 }
 
 .column img:hover {
-    transform: scale(1.04) rotate(-1deg);
+    transform: scale(1.06) rotate(-1deg);
     box-shadow: 0 6px 24px 0 rgba(244,211,94,0.18);
+    border-radius: 4px;
 }
 
 @media screen and (max-width: 800px) {
