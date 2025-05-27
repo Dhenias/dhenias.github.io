@@ -187,7 +187,8 @@ header:hover {
     flex: 2;
     margin: 18px 0 18px 18px;
     padding: 18px 24px;
-    font-size: 0.93rem;
+    font-size: 1rem;
+    text-align: justify;
     line-height: 1.7;
 }
 
