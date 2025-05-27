@@ -130,7 +130,6 @@
         <a href="#" class="close" aria-label="Close image">&times;</a>
         <img src="">
     </div>
-    <script src="js/finisher-header.es5.min.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
@@ -259,7 +258,23 @@
                 }
             };
         });
+        
+        window.onscroll = function() {stickyHeader()};
+
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        var body = document.querySelector('.body');
+        var headerHeight = header.offsetHeight;
+
+        function stickyHeader() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+            if (body) body.style.paddingTop = headerHeight + "px";
+          } else {
+            header.classList.remove("sticky");
+            if (body) body.style.paddingTop = "";
+          }
+        }
     </script>
-    <script src="js/sticky-header.js"></script>
 </body>
 </html>
