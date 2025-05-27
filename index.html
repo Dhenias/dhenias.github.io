@@ -36,7 +36,7 @@
     <div class="body" style="padding-top: 18px;">
       <section class="profile" id="profile">
         <div class="flex">
-          <a href="#den"><img class="pfp" src="img/den.png" alt="Dhenias Syafe'i Suryawijaya"></a>
+          <img class="pfp" src="img/den.png" alt="Dhenias Syafe'i Suryawijaya" data-image>
           <div class="disprofile">
             <p class="name">Dhenias Syafe'i Suryawijaya</p>
             <p class="agency">Kejuruan Animasi - SMKN 2 Cikarang Barat</p>
@@ -63,23 +63,23 @@
         <h2 style="text-align:center;margin-bottom:18px;">Artworks</h2>
         <div class="row">
           <div class="column">
-            <img src="img/artworks/Collab w-vyeranie.png" alt="Collab w-vyeranie" data-artwork>
-            <img src="img/artworks/Denya - Deya.jpeg" alt="Denya - Deya" data-artwork>
-            <img src="img/artworks/Denya C.jpg" alt="Denya C" data-artwork>
+            <img src="img/artworks/Collab w-vyeranie.png" alt="Collab w-vyeranie" data-image>
+            <img src="img/artworks/Denya - Deya.jpeg" alt="Denya - Deya" data-image>
+            <img src="img/artworks/Denya C.jpg" alt="Denya C" data-image>
           </div>
           <div class="column">
-            <img src="img/artworks/Enya.png" alt="Enya" data-artwork>
-            <img src="img/artworks/Fanart @peanutiess_.jpg" alt="Fanart Peanutiess" data-artwork>
-            <img src="img/artworks/Illustration1.jpg" alt="Illustration1" data-artwork>
+            <img src="img/artworks/Enya.png" alt="Enya" data-image>
+            <img src="img/artworks/Fanart @peanutiess_.jpg" alt="Fanart Peanutiess" data-image>
+            <img src="img/artworks/Illustration1.jpg" alt="Illustration1" data-image>
           </div>
           <div class="column">
-            <img src="img/artworks/Illustration2.jpg" alt="Illustration2" data-artwork>
-            <img src="img/artworks/Minya.jpg" alt="Minya" data-artwork>
-            <img src="img/artworks/Nina.jpg" alt="Nina" data-artwork>
+            <img src="img/artworks/Illustration2.jpg" alt="Illustration2" data-image>
+            <img src="img/artworks/Minya.jpg" alt="Minya" data-image>
+            <img src="img/artworks/Nina.jpg" alt="Nina" data-image>
           </div>
           <div class="column">
-            <img src="img/artworks/Zephy.jpg" alt="Zephy" data-artwork>
-            <img src="img/artworks/Collab.jpg" alt="Collab XI Animasi 1" data-artwork>
+            <img src="img/artworks/Zephy.jpg" alt="Zephy" data-image>
+            <img src="img/artworks/Collab.jpg" alt="Collab XI Animasi 1" data-image>
           </div>
         </div>
       </section>
@@ -96,20 +96,15 @@
       </div>
     </footer>
   </div>
-  <div id="den" class="pfpm">
+  <div id="image-modal" class="artwork-modal">
     <a href="#" class="close" aria-label="Close image">&times;</a>
-    <img src="img/den.png" alt="Dhenias Syafe'i Suryawijaya">
-  </div>
-  <div id="artwork-modal" class="artwork-modal">
-    <a href="#" class="close" aria-label="Close image">&times;</a>
-    <img src="" alt="Artwork Zoom">
+    <img src="">
   </div>
   <script src="js/finisher-header.es5.min.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
 
-      // Dropdown khusus Artworks
       var artworksToggle = document.querySelector('.artworks-dropdown-toggle');
       var artworksDropdown = document.querySelector('.artworks-dropdown-content');
       if (artworksToggle) artworksToggle.onclick = function(e) {
@@ -125,7 +120,6 @@
         }
       });
 
-      // Mobile dropdown
       var toggle = document.getElementById('menu-toggle');
       var dropdown = document.getElementById('mobile-dropdown');
       if (toggle) toggle.onclick = () => dropdown.classList.toggle('show');
@@ -135,10 +129,9 @@
         }
       });
 
-      // Artwork zoom modal
-      var modal = document.getElementById('artwork-modal');
+      var modal = document.getElementById('image-modal');
       var modalImg = modal.querySelector('img');
-      document.querySelectorAll('img[data-artwork]').forEach(function(img) {
+      document.querySelectorAll('img[data-image]').forEach(function(img) {
         img.addEventListener('click', function(e) {
           e.preventDefault();
           modalImg.src = img.src;
