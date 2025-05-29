@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>dhenias.github.io</title>
+    <meta name="description" content="Portofolio Dhenias Syafe'i Suryawijaya, siswa Animasi SMKN 2 Cikarang Barat.">
+    <title>Portofolio Dhenias Syafe'i Suryawijaya</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header finisher-header">
         <header id="header">
-            <!-- Tombol switch mode untuk mobile -->
             <button id="mode-toggle-mobile" class="mode-toggle-btn mobile-only" aria-label="Switch mode" title="Switch mode">
-                <!-- Icon akan diisi via JS/CSS -->
                 <span class="mode-icon"></span>
             </button>
             <div class="dhenias">
                 <p><a href="#">Portofolio</a></p>
             </div>
-            <!-- Tombol switch mode untuk desktop -->
             <button id="mode-toggle-desktop" class="mode-toggle-btn desktop-only" aria-label="Switch mode" title="Switch mode">
                 <span class="mode-icon"></span>
             </button>
@@ -80,7 +78,8 @@
             </section>
             <section class="artworks" id="digital">
                 <h2 style="text-align:center;margin-bottom:18px;">Digital Arts</h2>
-                <div class="row">
+                <!-- Hapus filter/sort controls for digital arts -->
+                <div class="row" id="digital-gallery">
                     <div class="column">
                         <img src="img/artworks/digital/Collab w-vyeranie.png" alt="Collab w-vyeranie" data-image>
                         <img src="img/artworks/digital/Denya - Deya.jpeg" alt="Denya - Deya" data-image>
@@ -104,7 +103,8 @@
             </section>
             <section class="artworks" id="traditional">
                 <h2 style="text-align:center;margin-bottom:18px;">Traditional Arts</h2>
-                <div class="row">
+                <!-- Hapus filter/sort controls for traditional arts -->
+                <div class="row" id="traditional-gallery">
                     <div class="column">
                         <img src="img/artworks/traditional/Chainsawman.jpg" alt="Chainsawman" data-image>
                         <img src="img/artworks/traditional/Peni Parker (Meme).jpg" alt="Peni Parker (Meme)" data-image>
@@ -131,6 +131,10 @@
                     <li><a href="mailto:dhenias08@gmail.com">dhenias08@gmail.com</a></li>
                     <li><a href="https://instagram.com/dhenyash" target="_blank" rel="noopener">@dhenyash</a></li>
                 </ul>
+                <p>Curriculum Vitae</p>
+                <ul>
+                    <li><a href="https://drive.google.com/file/d/13k2aOVPwMO96Pg2bq4rh7D5SZLD7iIbo/view?usp=sharing" target="_blank" rel="noopener">Google Drive</a></li>
+                </ul>
                 <p style="margin-top:12px;font-size:0.95em;color:#B8C1EC99;">&copy; 2025 Dhenias Syafe'i Suryawijaya</p>
             </div>
         </footer>
@@ -148,12 +152,11 @@
             if (artworksToggle) artworksToggle.onclick = function(e) {
                 e.stopPropagation();
                 if (artworksDropdown.classList.contains('show')) {
-                    // animasi keluar
                     artworksDropdown.classList.add('animating-out');
                     setTimeout(function() {
                         artworksDropdown.classList.remove('show');
                         artworksDropdown.classList.remove('animating-out');
-                    }, 180); // harus sama dengan CSS .animating-out transition
+                    }, 180);
                 } else {
                     artworksDropdown.classList.add('show');
                 }
@@ -171,7 +174,6 @@
                 }
             });
 
-            // Tutup dropdown saat link di dalamnya diklik (desktop)
             if (artworksDropdown) {
                 artworksDropdown.querySelectorAll('a').forEach(function(link) {
                     link.addEventListener('click', function() {
@@ -187,7 +189,6 @@
             var toggle = document.getElementById('menu-toggle');
             var dropdown = document.getElementById('mobile-dropdown');
 
-            // Helper untuk animasi keluar
             function hideDropdownWithAnimation() {
                 if (!dropdown.classList.contains('show')) return;
                 dropdown.classList.remove('animating-out');
@@ -198,11 +199,9 @@
                 }, 250);
             }
 
-            // Tampilkan dropdown tanpa animating-in
             function showDropdownWithAnimation() {
                 dropdown.classList.remove('animating-out');
                 dropdown.classList.add('show');
-                // Tidak perlu animating-in
             }
 
             if (toggle) {
@@ -285,7 +284,6 @@
           }
         }
 
-        // === MODE SWITCHER ===
         (function() {
             const body = document.body;
             const modeToggleDesktop = document.getElementById('mode-toggle-desktop');
@@ -317,9 +315,7 @@
                 setMode(next);
                 localStorage.setItem(storageKey, next);
             }
-            // Inisialisasi
             setMode(getMode());
-            // Event listeners
             if (modeToggleDesktop) modeToggleDesktop.onclick = toggleMode;
             if (modeToggleMobile) modeToggleMobile.onclick = toggleMode;
         })();
