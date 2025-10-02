@@ -1,6 +1,94 @@
 window.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
 
+    const digitalImages = [
+        { src: "img/artworks/digital/Collab w-vyeranie.png", alt: "Collab w-vyeranie" },
+        { src: "img/artworks/digital/Denya - Deya.jpeg", alt: "Denya - Deya" },
+        { src: "img/artworks/digital/Denya C.jpg", alt: "Denya C" },
+        { src: "img/artworks/digital/vanity-weddingdress.jpg", alt: "Vanity in Wedding Dress" },
+        { src: "img/artworks/digital/Enya.png", alt: "Enya" },
+        { src: "img/artworks/digital/Fanart @peanutiess_.jpg", alt: "Fanart Peanutiess" },
+        { src: "img/artworks/digital/Illustration1.jpg", alt: "Illustration1" },
+        { src: "img/artworks/digital/fnr1.png", alt: "Fanart Vanity" },
+        { src: "img/artworks/digital/Illustration2.jpg", alt: "Illustration2" },
+        { src: "img/artworks/digital/Minya.jpg", alt: "Minya" },
+        { src: "img/artworks/digital/Nina.jpg", alt: "Nina" },
+        { src: "img/artworks/digital/karasu-goi-profile.png", alt: "Zelus d'Craven" },
+        { src: "img/artworks/digital/Zephy.jpg", alt: "Zephy" },
+        { src: "img/artworks/digital/Denya12.png", alt: "Denya12" },
+        { src: "img/artworks/digital/Collab.jpg", alt: "Collab XI Animasi 1" },
+        { src: "img/artworks/digital/ILOVEMYWIFE.png", alt: "ILOVEMYWIFE Trend" },
+        { src: "img/artworks/digital/Illustration3.png", alt: "Illustration3" },
+        { src: "img/artworks/digital/zombie.png", alt: "Zombie" }
+    ];
+
+    const traditionalImages = [
+        { src: "img/artworks/traditional/Chainsawman.jpg", alt: "Chainsawman" },
+        { src: "img/artworks/traditional/Peni Parker (Meme).jpg", alt: "Peni Parker (Meme)" },
+        { src: "img/artworks/traditional/Illustration3.jpg", alt: "Illustration3" },
+        { src: "img/artworks/traditional/Ren.jpg", alt: "Ren" },
+        { src: "img/artworks/traditional/Illustration4.jpg", alt: "Illustration4" },
+        { src: "img/artworks/traditional/Renna.jpg", alt: "Renna" },
+        { src: "img/artworks/traditional/Toge Inumaki.jpg", alt: "Toge Inumaki" }
+    ];
+
+    function renderGallery(images, galleryId) {
+        const gallery = document.getElementById(galleryId);
+        if (!gallery) return;
+        gallery.innerHTML = "";
+        const columns = [[], [], [], []];
+        images.forEach((img, i) => {
+            columns[i % 4].push(`<img src="${img.src}" alt="${img.alt}" data-image>`);
+        });
+        columns.forEach(col => {
+            const div = document.createElement("div");
+            div.className = "column";
+            div.innerHTML = col.join("");
+            gallery.appendChild(div);
+        });
+            if (galleryId === "digital-gallery" || galleryId === "traditional-gallery") {
+                setTimeout(() => {
+                    document.querySelectorAll(`#${galleryId} img[data-image]`).forEach(function(img) {
+                        img.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var modal = document.getElementById('image-modal');
+                            var modalImg = modal.querySelector('img');
+                            modalImg.src = img.src;
+                            modalImg.alt = img.alt;
+                            modal.classList.add('show');
+                        });
+                    });
+                }, 0);
+            }
+    }
+
+        async function getImageSize(src) {
+            try {
+                const response = await fetch(src);
+                if (!response.ok) return 0;
+                const blob = await response.blob();
+                return blob.size;
+            } catch {
+                return 0;
+            }
+        }
+
+        async function sortImagesBySize(images) {
+            const imagesWithSize = await Promise.all(images.map(async img => {
+                const size = await getImageSize(img.src);
+                return { ...img, size };
+            }));
+            imagesWithSize.sort((a, b) => b.size - a.size);
+            return imagesWithSize;
+        }
+
+        (async function() {
+            const sortedDigital = await sortImagesBySize(digitalImages);
+            const sortedTraditional = await sortImagesBySize(traditionalImages);
+            renderGallery(sortedDigital, "digital-gallery");
+            renderGallery(sortedTraditional, "traditional-gallery");
+        })();
+
     var artworksToggle = document.querySelector('.artworks-dropdown-toggle');
     var artworksDropdown = document.querySelector('.artworks-dropdown-content');
     if (artworksToggle) artworksToggle.onclick = function(e) {
