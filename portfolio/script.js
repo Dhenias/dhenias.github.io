@@ -1,5 +1,45 @@
+// Preload click sound
+const clickAudio = new Audio('sound/click.wav');
+clickAudio.volume = 0.5;
+
+// Click sound effect using audio file
+function playClickSound() {
+    try {
+        // Clone and play to allow overlapping sounds
+        const audio = clickAudio.cloneNode();
+        audio.play().catch(function(error) {
+            // Silently fail if audio can't be played
+        });
+    } catch (e) {
+        // Silently fail if Audio API is not available
+    }
+}
+
 window.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.skills').forEach(bar => bar.classList.add('active'));
+    // Animate skill bars with stagger effect
+    const skillBars = document.querySelectorAll('.skills');
+    skillBars.forEach((bar, index) => {
+        setTimeout(() => {
+            bar.classList.add('active');
+        }, index * 150);
+        
+        // Add hover re-animation effect
+        bar.addEventListener('mouseenter', function() {
+            const className = this.className;
+            // Get the width value from the class
+            let width = '0%';
+            if (className.includes('draw')) width = '70%';
+            else if (className.includes('anim')) width = '82%';
+            else if (className.includes('html')) width = '79%';
+            else if (className.includes('css')) width = '76%';
+            
+            // Reset and re-animate
+            this.style.width = '0%';
+            setTimeout(() => {
+                this.style.width = width;
+            }, 10);
+        });
+    });
 
     const digitalImages = [
         { src: "img/artworks/digital/Collab w-vyeranie.png", alt: "Collab w-vyeranie" },
@@ -38,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function() {
         gallery.innerHTML = "";
         const columns = [[], [], [], []];
         images.forEach((img, i) => {
-            columns[i % 4].push(`<img src="${img.src}" alt="${img.alt}" data-image>`);
+            columns[i % 4].push(`<img src="${img.src}" alt="${img.alt}" data-image style="animation: fadeInUp 0.6s ease-out ${(i % 4) * 0.1}s backwards;">`);
         });
         columns.forEach(col => {
             const div = document.createElement("div");
@@ -62,24 +102,26 @@ window.addEventListener('DOMContentLoaded', function() {
             }
     }
 
-        async function getImageSize(src) {
-            try {
-                const response = await fetch(src);
-                if (!response.ok) return 0;
-                const blob = await response.blob();
-                return blob.size;
-            } catch {
-                return 0;
-            }
+        async function getImageDimensions(src) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = function() {
+                    resolve({ width: this.width, height: this.height, pixels: this.width * this.height });
+                };
+                img.onerror = function() {
+                    resolve({ width: 0, height: 0, pixels: 0 });
+                };
+                img.src = src;
+            });
         }
 
         async function sortImagesBySize(images) {
-            const imagesWithSize = await Promise.all(images.map(async img => {
-                const size = await getImageSize(img.src);
-                return { ...img, size };
+            const imagesWithDimensions = await Promise.all(images.map(async img => {
+                const dimensions = await getImageDimensions(img.src);
+                return { ...img, ...dimensions };
             }));
-            imagesWithSize.sort((a, b) => b.size - a.size);
-            return imagesWithSize;
+            imagesWithDimensions.sort((a, b) => b.pixels - a.pixels);
+            return imagesWithDimensions;
         }
 
         (async function() {
@@ -91,7 +133,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
     var artworksToggle = document.querySelector('.artworks-dropdown-toggle');
     var artworksDropdown = document.querySelector('.artworks-dropdown-content');
+    var artworksSubheader = document.querySelector('.subheader:has(.artworks-dropdown-toggle)');
+    var dropdownTimeout;
+    
+    // Click functionality
     if (artworksToggle) artworksToggle.onclick = function(e) {
+        playClickSound();
         e.stopPropagation();
         if (artworksDropdown.classList.contains('show')) {
             artworksDropdown.classList.add('animating-out');
@@ -103,10 +150,51 @@ window.addEventListener('DOMContentLoaded', function() {
             artworksDropdown.classList.add('show');
         }
     };
+    
+    // Hover functionality for button
+    if (artworksToggle) {
+        artworksToggle.addEventListener('mouseenter', function() {
+            clearTimeout(dropdownTimeout);
+            if (!artworksDropdown.classList.contains('show')) {
+                artworksDropdown.classList.add('show');
+            }
+        });
+        
+        artworksToggle.addEventListener('mouseleave', function() {
+            dropdownTimeout = setTimeout(function() {
+                if (artworksDropdown && !artworksDropdown.matches(':hover')) {
+                    artworksDropdown.classList.add('animating-out');
+                    setTimeout(function() {
+                        artworksDropdown.classList.remove('show');
+                        artworksDropdown.classList.remove('animating-out');
+                    }, 180);
+                }
+            }, 150);
+        });
+    }
+    
+    // Keep dropdown open when hovering over it
+    if (artworksDropdown) {
+        artworksDropdown.addEventListener('mouseenter', function() {
+            clearTimeout(dropdownTimeout);
+        });
+        
+        artworksDropdown.addEventListener('mouseleave', function() {
+            dropdownTimeout = setTimeout(function() {
+                artworksDropdown.classList.add('animating-out');
+                setTimeout(function() {
+                    artworksDropdown.classList.remove('show');
+                    artworksDropdown.classList.remove('animating-out');
+                }, 180);
+            }, 150);
+        });
+    }
+    
     document.addEventListener('click', function(e) {
         if (
             artworksDropdown && artworksDropdown.classList.contains('show') &&
-            !artworksDropdown.contains(e.target) && e.target !== artworksToggle
+            !artworksDropdown.contains(e.target) && e.target !== artworksToggle &&
+            !artworksSubheader.contains(e.target)
         ) {
             artworksDropdown.classList.add('animating-out');
             setTimeout(function() {
@@ -148,6 +236,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     if (toggle) {
         toggle.onclick = function(e) {
+            playClickSound();
             e.stopPropagation();
             if (dropdown.classList.contains('show')) {
                 hideDropdownWithAnimation();
@@ -169,6 +258,7 @@ window.addEventListener('DOMContentLoaded', function() {
     if (dropdown) {
         dropdown.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
+                playClickSound();
                 hideDropdownWithAnimation();
             });
         });
@@ -190,6 +280,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var modalImg = modal.querySelector('img');
     document.querySelectorAll('img[data-image]').forEach(function(img) {
         img.addEventListener('click', function(e) {
+            playClickSound();
             e.preventDefault();
             modalImg.src = img.src;
             modalImg.alt = img.alt;
@@ -197,34 +288,42 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     });
     modal.querySelector('.close').onclick = function(e) {
+        playClickSound();
         e.preventDefault();
         modal.classList.remove('show');
         modalImg.src = '';
     };
     modal.onclick = function(e) {
         if (e.target === modal) {
+            playClickSound();
             modal.classList.remove('show');
             modalImg.src = '';
         }
     };
+    
+    // Add click sound to navigation links (except artworks dropdown)
+    document.querySelectorAll('.subheader a:not(.artworks-dropdown-content a), .dhenias a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            playClickSound();
+        });
+    });
+    
+    // Add click sound to artworks dropdown links
+    document.querySelectorAll('.artworks-dropdown-content a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            playClickSound();
+        });
+    });
+    
+    // Add click sound to CTA buttons
+    document.querySelectorAll('.cta-button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            playClickSound();
+        });
+    });
 });
 
-window.onscroll = function() {stickyHeader();};
-
-var header = document.getElementById("header");
-var sticky = header.offsetTop;
-var body = document.querySelector('.body');
-var headerHeight = header.offsetHeight;
-
-function stickyHeader() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-    if (body) body.style.paddingTop = headerHeight + "px";
-  } else {
-    header.classList.remove("sticky");
-    if (body) body.style.paddingTop = "";
-  }
-}
+window.onscroll = function() {};
 
 (function() {
     const body = document.body;
@@ -252,6 +351,7 @@ function stickyHeader() {
         return localStorage.getItem(storageKey) || (prefersDark ? 'dark' : 'light');
     }
     function toggleMode() {
+        playClickSound();
         const current = getMode();
         const next = current === 'light' ? 'dark' : 'light';
         setMode(next);

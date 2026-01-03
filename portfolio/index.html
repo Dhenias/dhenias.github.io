@@ -10,54 +10,77 @@
 <body>
     <div class="header finisher-header">
         <header id="header">
-            <button id="mode-toggle-mobile" class="mode-toggle-btn mobile-only" aria-label="Switch mode" title="Switch mode">
-                <span class="mode-icon"></span>
-            </button>
-            <div class="dhenias">
-                <p><a href="/">dhenias.github.io</a></p>
+            <div class="header-left">
+                <button id="mode-toggle-mobile" class="mode-toggle-btn mobile-only" aria-label="Switch mode" title="Switch mode">
+                    <span class="mode-icon"></span>
+                </button>
+                <div class="dhenias">
+                    <p><a href="/">dhenias.github.io</a></p>
+                </div>
+                <nav style="display:inline;">
+                    <div class="subheader">
+                        <p><a href="#profile">Profile</a></p>
+                    </div>
+                    <div class="subheader">
+                        <button class="artworks-dropdown-toggle artsubhead">Artworks</button>
+                        <div class="artworks-dropdown-content">
+                            <a href="#digital">Digital</a>
+                            <a href="#traditional">Traditional</a>
+                        </div>
+                    </div>
+                    <div class="subheader">
+                        <p><a href="#contact">Contacts</a></p>
+                    </div>
+                    <div class="subheader">
+                        <p><a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a></p>
+                    </div>
+                </nav>
             </div>
             <button id="mode-toggle-desktop" class="mode-toggle-btn desktop-only" aria-label="Switch mode" title="Switch mode">
                 <span class="mode-icon"></span>
             </button>
-            <nav style="display:inline;">
-                <div class="subheader">
-                    <p><a href="#profile">Profile</a></p>
-                </div>
-                <div class="subheader">
-                    <button class="artworks-dropdown-toggle artsubhead">Artworks</button>
-                    <div class="artworks-dropdown-content">
-                        <a href="#digital">Digital Arts</a>
-                        <a href="#traditional">Traditional Arts</a>
-                    </div>
-                </div>
-                <div class="subheader">
-                    <p><a href="#contact">Contact</a></p>
-                </div>
-                <div class="subheader">
-                    <p><a href="https://trakteer.id/deniass" target="_blank" rel="noopener">Trakteer.id</a></p>
-                </div>
-            </nav>
             <div class="mobile-menu">
                 <button id="menu-toggle" aria-label="Open menu">&#9776;</button>
                 <div id="mobile-dropdown" class="mobile-dropdown-content">
                     <a href="#profile">Profile</a>
-                    <a href="#digital">Digital Arts</a>
-                    <a href="#traditional">Traditional Arts</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#digital">Digital</a>
+                    <a href="#traditional">Traditional</a>
+                    <a href="#contact">Contacts</a>
                     <a href="https://trakteer.id/denyasonata" target="_blank" rel="noopener">Trakteer.id</a>
                 </div>
             </div>
         </header>
-        <div class="body" style="padding-top: 18px;">
+        <div class="hero-section" id="profile">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Dhenias Syafe'i Suryawijaya</h1>
+                    <p class="hero-subtitle">Animator & Digital Artist</p>
+                    <p class="hero-description">2D Animation | SMKN 2 Cikarang Barat</p>
+                    <div class="hero-cta">
+                        <a href="#artworks" class="cta-button primary">Lihat Karya Saya</a>
+                        <a href="#contact" class="cta-button secondary">Hubungi Saya</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <img class="pfp hero-pfp" src="img/den.png" alt="Dhenias Syafe'i Suryawijaya">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <!--
             <section class="profile" id="profile">
-                <div class="flex">
-                    <img class="pfp" src="img/den.png" alt="Dhenias Syafe'i Suryawijaya" data-image>
-                    <div class="disprofile">
-                        <p class="name">Dhenias Syafe'i Suryawijaya</p>
-                        <p class="agency">Kejuruan Animasi - SMKN 2 Cikarang Barat</p>
+                <div class="profile-wrapper">
+                    <div class="flex">
+                        <div class="disprofile">
+                            <p class="name">Dhenias Syafe'i Suryawijaya - Animasi 1</p>
+                            <p class="agency">Kejuruan Animasi - SMKN 2 Cikarang Barat</p>
+                        </div>
                     </div>
                 </div>
             </section>
+            -->
             <section id="bio">
                 <div class="bio">
                     <div class="bio-content">
@@ -76,15 +99,23 @@
                     </div>
                 </div>
             </section>
-            <section class="artworks" id="digital">
-                <h2 style="text-align:center;margin-bottom:18px;">Digital Arts</h2>
-                <div class="row" id="digital-gallery">
-                </div>
-            </section>
-            <section class="artworks" id="traditional">
-                <h2 style="text-align:center;margin-bottom:18px;">Traditional Arts</h2>
-                <div class="row" id="traditional-gallery">
-                </div>
+            <section id="artworks">
+                <section class="artworks" id="digital">
+                    <div class="section-header">
+                        <h2>Digital Arts</h2>
+                        <p class="section-subtitle">Character Designs & Digital Illustrations</p>
+                    </div>
+                    <div class="row" id="digital-gallery">
+                    </div>
+                </section>
+                <section class="artworks" id="traditional">
+                    <div class="section-header">
+                        <h2>Traditional Arts</h2>
+                        <p class="section-subtitle">Hand-drawn & Sketch Works</p>
+                    </div>
+                    <div class="row" id="traditional-gallery">
+                    </div>
+                </section>
             </section>
         </div>
         <footer id="contact" class="footer">
