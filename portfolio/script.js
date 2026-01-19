@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function() {
         { src: "img/artworks/digital/Collab.jpg", alt: "Collab XI Animasi 1" },
         { src: "img/artworks/digital/ILOVEMYWIFE.png", alt: "ILOVEMYWIFE Trend" },
         { src: "img/artworks/digital/Illustration3.png", alt: "Illustration3" },
-        { src: "img/artworks/digital/zombie.png", alt: "Zombie" }
+        { src: "img/artworks/digital/Zombie.png", alt: "Zombie" }
     ];
 
     const traditionalImages = [
