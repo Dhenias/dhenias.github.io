@@ -1,5 +1,5 @@
 // Preload click sound
-const clickAudio = new Audio('sound/click.mp3');
+const clickAudio = new Audio('sound/click.wav');
 clickAudio.volume = 0.5;
 
 // Click sound effect using audio file
