@@ -79,21 +79,46 @@
             background: rgba(244, 211, 94, 0.1);
             border: 1px solid rgba(244, 211, 94, 0.2);
             cursor: pointer;
-            font-size: 24px;
-            z-index: 10;
-            transition: all 0.3s;
-            padding: 8px 12px;
+            padding: 8px;
             border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #F4D35E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            font-size: 1.5rem;
+            z-index: 10;
         }
 
-        .mode-toggle:hover {
+        .mode-toggle:hover,
+        .mode-toggle:focus {
             background: rgba(244, 211, 94, 0.2);
+            border-color: rgba(244, 211, 94, 0.4);
             box-shadow: 0 0 15px rgba(244, 211, 94, 0.2);
+            outline: none;
+        }
+
+        .mode-toggle:active {
+            transform: rotate(20deg);
         }
 
         body.light-mode .mode-toggle {
             background: rgba(91, 111, 168, 0.1);
             border-color: rgba(91, 111, 168, 0.2);
+            color: #5b6fa8;
+        }
+
+        body.light-mode .mode-toggle:hover,
+        body.light-mode .mode-toggle:focus {
+            background: rgba(91, 111, 168, 0.2);
+            border-color: rgba(91, 111, 168, 0.4);
+            box-shadow: 0 0 15px rgba(91, 111, 168, 0.2);
+        }
+
+        body.light-mode .mode-toggle:active {
+            transform: rotate(20deg);
         }
 
         .profile-pic {
