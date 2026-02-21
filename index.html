@@ -1,7 +1,267 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta http-equiv="refresh" content="0; url=/portfolio/">
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dhenias Syafe'i Suryawijaya - Animator & Digital Artist. Siswa Animasi SMKN 2 Cikarang Barat.">
+    <meta name="keywords" content="Dhenias, Animator, Digital Artist, Portofolio, Karya">
+    <link rel="icon" type="image/png" href="portfolio/img/den.png">
+    <title>Dhenias Syafe'i Suryawijaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.3s;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .landing-container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        body.light-mode .landing-container {
+            background: rgba(20, 20, 40, 0.95);
+        }
+
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+            transition: transform 0.3s;
+        }
+
+        .mode-toggle:hover {
+            transform: rotate(20deg);
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #667eea;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode .profile-pic {
+            border-color: #ff6b9d;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+
+        body.light-mode h1 {
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        body.light-mode .subtitle {
+            color: #ff6b9d;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        body.light-mode .bio {
+            color: #ddd;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-btn {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        body.light-mode .btn-secondary {
+            background: transparent;
+            color: #ff6b9d;
+            border: 2px solid #ff6b9d;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-email {
+            background: #ea4335;
+            color: white;
+        }
+
+        .btn-tiktok {
+            background: #000000;
+            color: white;
+        }
+
+        body.light-mode .btn-tiktok {
+            background: #25f4ee;
+            color: #000;
+        }
+
+        .btn-github {
+            background: #333333;
+            color: white;
+        }
+
+        body.light-mode .btn-github {
+            background: #555555;
+            color: #fff;
+        }
+
+        .btn-behance {
+            background: #1769ff;
+            color: white;
+        }
+
+        .btn-linkedin {
+            background: #0a66c2;
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        body.light-mode .footer-text {
+            color: #aaa;
+        }
+
+        @media (max-width: 500px) {
+            .landing-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
 </head>
+<body>
+    <button class="mode-toggle" id="mode-toggle" aria-label="Switch mode" title="Switch mode">🌙</button>
+
+    <div class="landing-container">
+        <img class="profile-pic" src="portfolio/img/den.png" alt="Dhenias Syafe'i Suryawijaya">
+        <h1>Dhenias Syafe'i</h1>
+        <p class="subtitle">Animator & Digital Artist</p>
+        <p class="bio">Siswa Animasi SMKN 2 Cikarang Barat. Saya membuat animasi 2D dan ilustrasi digital menggunakan Clip Studio Paint & ToonBoom Harmony.</p>
+
+        <div class="links-container">
+            <a href="portfolio/" class="link-btn btn-primary"><i class="fas fa-folder"></i> Lihat Portofolio</a>
+            <a href="https://instagram.com/dhenyash" target="_blank" rel="noopener" class="link-btn btn-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://tiktok.com/@dhenyash" target="_blank" rel="noopener" class="link-btn btn-tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://www.behance.net/denyasonata" target="_blank" rel="noopener" class="link-btn btn-behance"><i class="fab fa-behance"></i> Behance</a>
+            <a href="https://www.linkedin.com/in/dhenias-syafe-i-suryawijaya-b32333362/" target="_blank" rel="noopener" class="link-btn btn-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/dhenias" target="_blank" rel="noopener" class="link-btn btn-github"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://whatsapp.com/channel/0029VbCN6SiBadmTyLJTRp24" target="_blank" rel="noopener" class="link-btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Channel</a>
+            <a href="mailto:dhenias08@gmail.com" class="link-btn btn-email"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://trakteer.id/deniass" target="_blank" rel="noopener" class="link-btn btn-secondary"><i class="fas fa-heart"></i> Support</a>
+        </div>
+
+        <p class="footer-text">&copy; 2025 Dhenias Syafe'i Suryawijaya</p>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        // Check for saved mode in localStorage
+        const savedMode = localStorage.getItem('mode') || 'dark';
+        if (savedMode === 'light') {
+            body.classList.add('light-mode');
+            modeToggle.textContent = '☀️';
+        }
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLightMode = body.classList.contains('light-mode');
+            modeToggle.textContent = isLightMode ? '☀️' : '🌙';
+            localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
+        });
+    </script>
+</body>
 </html>
