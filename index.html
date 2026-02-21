@@ -121,6 +121,16 @@
             transform: rotate(20deg);
         }
 
+        .mode-toggle .mode-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
         .profile-pic {
             width: 120px;
             height: 120px;
@@ -318,7 +328,9 @@
 </head>
 <body>
     <canvas id="canvas-bg"></canvas>
-    <button class="mode-toggle" id="mode-toggle" aria-label="Switch mode" title="Switch mode">🌙</button>
+    <button class="mode-toggle" id="mode-toggle" aria-label="Switch mode" title="Switch mode">
+        <span class="mode-icon"></span>
+    </button>
 
     <div class="landing-container">
         <img class="profile-pic" src="portfolio/img/den.png" alt="Dhenias Syafe'i Suryawijaya">
@@ -429,18 +441,21 @@
 
         // Mode toggle
         const modeToggle = document.getElementById('mode-toggle');
+        const modeIcon = document.querySelector('.mode-icon');
         const body = document.body;
 
         const savedMode = localStorage.getItem('mode') || 'dark';
         if (savedMode === 'light') {
             body.classList.add('light-mode');
-            modeToggle.textContent = '☀️';
+            modeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            modeIcon.innerHTML = '<i class="fas fa-moon"></i>';
         }
 
         modeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
             const isLightMode = body.classList.contains('light-mode');
-            modeToggle.textContent = isLightMode ? '☀️' : '🌙';
+            modeIcon.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             localStorage.setItem('mode', isLightMode ? 'light' : 'dark');
         });
     </script>
