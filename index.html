@@ -17,48 +17,83 @@
 
         body {
             font-family: 'Ubuntu', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #121629 0%, #232946 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: 0.5;
         }
 
         body.light-mode {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e6ebf8 100%);
         }
 
         .landing-container {
             text-align: center;
             max-width: 500px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(35, 41, 70, 0.8);
             padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(244, 211, 94, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         body.light-mode .landing-container {
-            background: rgba(20, 20, 40, 0.95);
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(91, 111, 168, 0.2);
+            box-shadow: 0 8px 32px rgba(91, 111, 168, 0.15);
         }
 
         .mode-toggle {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: none;
-            border: none;
+            background: rgba(244, 211, 94, 0.1);
+            border: 1px solid rgba(244, 211, 94, 0.2);
             cursor: pointer;
             font-size: 24px;
             z-index: 10;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 8px;
         }
 
         .mode-toggle:hover {
-            transform: rotate(20deg);
+            background: rgba(244, 211, 94, 0.2);
+            box-shadow: 0 0 15px rgba(244, 211, 94, 0.2);
+        }
+
+        body.light-mode .mode-toggle {
+            background: rgba(91, 111, 168, 0.1);
+            border-color: rgba(91, 111, 168, 0.2);
         }
 
         .profile-pic {
@@ -66,47 +101,64 @@
             height: 120px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 4px solid #667eea;
+            border: 3px solid rgba(244, 211, 94, 0.3);
             display: block;
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(244, 211, 94, 0.2);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         body.light-mode .profile-pic {
-            border-color: #ff6b9d;
+            border-color: rgba(91, 111, 168, 0.3);
+            box-shadow: 0 0 30px rgba(91, 111, 168, 0.15);
         }
 
         h1 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #1a1a2e;
+            background: linear-gradient(135deg, #F4D35E 0%, #FFE66D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         body.light-mode h1 {
-            color: #ffffff;
+            background: linear-gradient(135deg, #5b6fa8 0%, #7a8ec7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
             font-size: 16px;
-            color: #667eea;
+            color: #B8C1EC;
             font-weight: 500;
             margin-bottom: 20px;
         }
 
         body.light-mode .subtitle {
-            color: #ff6b9d;
+            color: #5b6fa8;
         }
 
         .bio {
             font-size: 14px;
-            color: #555;
+            color: #B8C1EC;
             line-height: 1.6;
             margin-bottom: 30px;
         }
 
         body.light-mode .bio {
-            color: #ddd;
+            color: #1a1a2e;
         }
 
         .links-container {
@@ -123,8 +175,11 @@
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
             font-family: 'Ubuntu', sans-serif;
         }
 
@@ -134,20 +189,35 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #F4D35E 0%, #FFE66D 100%);
+            color: #232946;
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 30px rgba(244, 211, 94, 0.3);
         }
 
         .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            background: rgba(244, 211, 94, 0.1);
+            color: #F4D35E;
+            border: 2px solid rgba(244, 211, 94, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(244, 211, 94, 0.2);
+            border-color: rgba(244, 211, 94, 0.5);
         }
 
         body.light-mode .btn-secondary {
-            background: transparent;
-            color: #ff6b9d;
-            border: 2px solid #ff6b9d;
+            background: rgba(91, 111, 168, 0.1);
+            color: #5b6fa8;
+            border-color: rgba(91, 111, 168, 0.3);
+        }
+
+        body.light-mode .btn-secondary:hover {
+            background: rgba(91, 111, 168, 0.2);
+            border-color: rgba(91, 111, 168, 0.5);
         }
 
         .btn-instagram {
@@ -197,12 +267,12 @@
 
         .footer-text {
             font-size: 12px;
-            color: #999;
+            color: #B8C1EC99;
             margin-top: 30px;
         }
 
         body.light-mode .footer-text {
-            color: #aaa;
+            color: #99999999;
         }
 
         @media (max-width: 500px) {
@@ -222,6 +292,7 @@
     </style>
 </head>
 <body>
+    <canvas id="canvas-bg"></canvas>
     <button class="mode-toggle" id="mode-toggle" aria-label="Switch mode" title="Switch mode">🌙</button>
 
     <div class="landing-container">
@@ -246,10 +317,95 @@
     </div>
 
     <script>
+        // Interactive background particles
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.color = Math.random() > 0.5 ? '#F4D35E' : '#B8C1EC';
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Initialize particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.strokeStyle = '#F4D35E';
+                        ctx.globalAlpha = (100 - distance) / 500;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalAlpha = 1;
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Mode toggle
         const modeToggle = document.getElementById('mode-toggle');
         const body = document.body;
 
-        // Check for saved mode in localStorage
         const savedMode = localStorage.getItem('mode') || 'dark';
         if (savedMode === 'light') {
             body.classList.add('light-mode');
