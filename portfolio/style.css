@@ -1104,7 +1104,7 @@ header:hover {
 }
 
 /* === MODE SWITCHER BUTTON === */
-.mode-toggle-btn {
+.mode-toggle {
     background: rgba(244, 211, 94, 0.1);
     border: 1px solid rgba(244, 211, 94, 0.2);
     cursor: pointer;
@@ -1121,21 +1121,24 @@ header:hover {
     font-size: 1.5rem;
     z-index: 1100;
 }
-.mode-toggle-btn:hover,
-.mode-toggle-btn:focus {
+.mode-toggle:hover,
+.mode-toggle:focus {
     background: rgba(244, 211, 94, 0.2);
     border-color: rgba(244, 211, 94, 0.4);
     box-shadow: 0 0 15px rgba(244, 211, 94, 0.2);
     outline: none;
 }
 
-.mode-toggle-btn:active {
+.mode-toggle:active {
     transform: rotate(20deg);
 }
-.mode-toggle-btn .mode-icon svg {
-    display: block;
+.mode-toggle .mode-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 26px;
     height: 26px;
+    font-size: 1.2rem;
     pointer-events: none;
 }
 
@@ -1242,20 +1245,20 @@ body.light-mode .artsubhead:hover::after {
     background: linear-gradient(90deg, #5b6fa8, #7a8ec7);
 }
 
-body.light-mode .mode-toggle-btn {
+body.light-mode .mode-toggle {
     background: rgba(91, 111, 168, 0.1);
     border-color: rgba(91, 111, 168, 0.2);
     color: #5b6fa8;
 }
 
-body.light-mode .mode-toggle-btn:hover,
-body.light-mode .mode-toggle-btn:focus {
+body.light-mode .mode-toggle:hover,
+body.light-mode .mode-toggle:focus {
     background: rgba(91, 111, 168, 0.2);
     border-color: rgba(91, 111, 168, 0.4);
     box-shadow: 0 0 15px rgba(91, 111, 168, 0.2);
 }
 
-body.light-mode .mode-toggle-btn:active {
+body.light-mode .mode-toggle:active {
     transform: rotate(20deg);
 }
 
@@ -1359,11 +1362,11 @@ body.light-mode .name:hover,
 body.light-mode .agency:hover {
     color: #5b6fa8;
 }
-body.light-mode .mode-toggle-btn {
+body.light-mode .mode-toggle {
     color: #5b6fa8;
 }
-body.light-mode .mode-toggle-btn:hover,
-body.light-mode .mode-toggle-btn:focus {
+body.light-mode .mode-toggle:hover,
+body.light-mode .mode-toggle:focus {
     background: #5b6fa833;
 }
 
