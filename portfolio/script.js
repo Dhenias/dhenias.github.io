@@ -15,6 +15,26 @@ function playClickSound() {
     }
 }
 
+// Add click sound to navigation buttons
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Only handle links that aren't opening in new tabs and have href
+        const href = this.getAttribute('href');
+        const target = this.getAttribute('target');
+        
+        if (href && !href.startsWith('#') && target !== '_blank') {
+            e.preventDefault();
+            playClickSound();
+            setTimeout(() => {
+                window.location.href = href;
+            }, 150);
+        } else if (href && !href.startsWith('#') && target === '_blank') {
+            // For external links opening in new tab, play sound but don't prevent default
+            playClickSound();
+        }
+    });
+});
+
 window.addEventListener('DOMContentLoaded', function() {
     // Animate skill bars with stagger effect
     const skillBars = document.querySelectorAll('.skills');

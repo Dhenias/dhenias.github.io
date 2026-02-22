@@ -1,14 +1,33 @@
+// Preload click sound
+const clickAudio = new Audio('portfolio/sound/click.wav');
+clickAudio.volume = 0.5;
+
 // Sound effects for buttons
 function playClickSound() {
-    const audio = new Audio('portfolio/sound/click.wav');
-    audio.volume = 0.5;
-    audio.play().catch(err => console.log('Audio play failed:', err));
+    try {
+        // Clone and play to allow overlapping sounds (no delay)
+        const audio = clickAudio.cloneNode();
+        audio.play().catch(err => console.log('Audio play failed:', err));
+    } catch (e) {
+        console.log('Audio API unavailable:', e);
+    }
 }
 
 // Add click sound to all buttons
 document.querySelectorAll('.link-btn').forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
         playClickSound();
+        // Navigate after sound starts playing
+        const href = button.getAttribute('href');
+        const target = button.getAttribute('target');
+        setTimeout(() => {
+            if (target === '_blank') {
+                window.open(href, '_blank');
+            } else {
+                window.location.href = href;
+            }
+        }, 150);
     });
 });
 
