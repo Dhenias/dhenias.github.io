@@ -8,323 +8,7 @@
     <title>Dhenias Syafe'i Suryawijaya</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Ubuntu', sans-serif;
-            background: linear-gradient(135deg, #121629 0%, #232946 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: background 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        body.light-mode {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e6ebf8 100%);
-        }
-
-        .landing-container {
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-            background: rgba(35, 41, 70, 0.8);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-            border: 1px solid rgba(244, 211, 94, 0.1);
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        body.light-mode .landing-container {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(91, 111, 168, 0.2);
-            box-shadow: 0 8px 32px rgba(91, 111, 168, 0.15);
-        }
-
-        .mode-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(244, 211, 94, 0.1);
-            border: 1px solid rgba(244, 211, 94, 0.2);
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            color: #F4D35E;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 40px;
-            width: 40px;
-            font-size: 1.5rem;
-            z-index: 10;
-        }
-
-        .mode-toggle:hover,
-        .mode-toggle:focus {
-            background: rgba(244, 211, 94, 0.2);
-            border-color: rgba(244, 211, 94, 0.4);
-            box-shadow: 0 0 15px rgba(244, 211, 94, 0.2);
-            outline: none;
-        }
-
-        .mode-toggle:active {
-            transform: rotate(20deg);
-        }
-
-        body.light-mode .mode-toggle {
-            background: rgba(91, 111, 168, 0.1);
-            border-color: rgba(91, 111, 168, 0.2);
-            color: #5b6fa8;
-        }
-
-        body.light-mode .mode-toggle:hover,
-        body.light-mode .mode-toggle:focus {
-            background: rgba(91, 111, 168, 0.2);
-            border-color: rgba(91, 111, 168, 0.4);
-            box-shadow: 0 0 15px rgba(91, 111, 168, 0.2);
-        }
-
-        body.light-mode .mode-toggle:active {
-            transform: rotate(20deg);
-        }
-
-        .mode-toggle .mode-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 26px;
-            height: 26px;
-            font-size: 1.2rem;
-            pointer-events: none;
-        }
-
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 3px solid rgba(244, 211, 94, 0.3);
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 0 30px rgba(244, 211, 94, 0.2);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        body.light-mode .profile-pic {
-            border-color: rgba(91, 111, 168, 0.3);
-            box-shadow: 0 0 30px rgba(91, 111, 168, 0.15);
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #F4D35E 0%, #FFE66D 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        body.light-mode h1 {
-            background: linear-gradient(135deg, #5b6fa8 0%, #7a8ec7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #B8C1EC;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        body.light-mode .subtitle {
-            color: #5b6fa8;
-        }
-
-        .bio {
-            font-size: 14px;
-            color: #B8C1EC;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        body.light-mode .bio {
-            color: #1a1a2e;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .link-btn {
-            padding: 14px 24px;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
-            font-family: 'Ubuntu', sans-serif;
-        }
-
-        .link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #F4D35E 0%, #FFE66D 100%);
-            color: #232946;
-            font-weight: 700;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 10px 30px rgba(244, 211, 94, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(244, 211, 94, 0.1);
-            color: #F4D35E;
-            border: 2px solid rgba(244, 211, 94, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(244, 211, 94, 0.2);
-            border-color: rgba(244, 211, 94, 0.5);
-        }
-
-        body.light-mode .btn-secondary {
-            background: rgba(91, 111, 168, 0.1);
-            color: #5b6fa8;
-            border-color: rgba(91, 111, 168, 0.3);
-        }
-
-        body.light-mode .btn-secondary:hover {
-            background: rgba(91, 111, 168, 0.2);
-            border-color: rgba(91, 111, 168, 0.5);
-        }
-
-        .btn-instagram {
-            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-        }
-
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-        }
-
-        .btn-email {
-            background: #ea4335;
-            color: white;
-        }
-
-        .btn-tiktok {
-            background: #000000;
-            color: white;
-        }
-
-        body.light-mode .btn-tiktok {
-            background: #25f4ee;
-            color: #000;
-        }
-
-        .btn-github {
-            background: #333333;
-            color: white;
-        }
-
-        body.light-mode .btn-github {
-            background: #555555;
-            color: #fff;
-        }
-
-        .btn-behance {
-            background: #1769ff;
-            color: white;
-        }
-
-        .btn-linkedin {
-            background: #0a66c2;
-            color: white;
-        }
-
-        .footer-text {
-            font-size: 12px;
-            color: #B8C1EC99;
-            margin-top: 30px;
-        }
-
-        body.light-mode .footer-text {
-            color: #99999999;
-        }
-
-        @media (max-width: 500px) {
-            .landing-container {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            .profile-pic {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="canvas-bg"></canvas>
@@ -354,6 +38,20 @@
     </div>
 
     <script>
+        // Sound effects for buttons
+        function playClickSound() {
+            const audio = new Audio('portfolio/sound/click.wav');
+            audio.volume = 0.5;
+            audio.play().catch(err => console.log('Audio play failed:', err));
+        }
+
+        // Add click sound to all buttons
+        document.querySelectorAll('.link-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                playClickSound();
+            });
+        });
+
         // Interactive background particles
         const canvas = document.getElementById('canvas-bg');
         const ctx = canvas.getContext('2d');
@@ -453,6 +151,7 @@
         }
 
         modeToggle.addEventListener('click', () => {
+            playClickSound();
             body.classList.toggle('light-mode');
             const isLightMode = body.classList.contains('light-mode');
             modeIcon.innerHTML = isLightMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
